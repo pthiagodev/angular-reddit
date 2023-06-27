@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, HostBinding } from '@angular/core';
+import { Article } from './article.model';
 
 @Component({
   selector: 'app-article',
@@ -6,5 +7,23 @@ import { Component } from '@angular/core';
   styleUrls: ['./article.component.css']
 })
 export class ArticleComponent {
+  @HostBinding('attr.class') cssClass = 'row';
+  article: Article
 
+  constructor() {
+    this.article = new Article(
+      'Angular',
+      'http://angular.io',
+      10);
+  }
+
+  voteUp(): boolean {
+    this.article.voteUp();
+    return false;
+  }
+
+  voteDown(): boolean {
+    this.article.voteDown();
+    return false;
+  }
 }
