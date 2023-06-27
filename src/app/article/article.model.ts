@@ -11,12 +11,10 @@ export class Article {
 
     voteUp() {
         this.votes += 1;
-        return false;
     }
     
     voteDown() {
-    this.votes -= 1;
-    return false;
+        this.votes -= 1;
     }
 
     domain(): string {
